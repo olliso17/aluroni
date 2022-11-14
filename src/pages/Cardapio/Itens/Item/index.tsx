@@ -1,6 +1,6 @@
 import styles from "./Item.module.scss";
-import logo from "assets/logo.svg";
 import cardapio from "../itens.json"
+import classNames  from "classnames";
 
 type IItem = typeof cardapio[0];
 
@@ -17,7 +17,10 @@ export default function Item({ title, description, size, id, serving, price, cat
                 </div>
             </div>
             <div className={styles.item__tags}>
-                <div className={styles.item__tipo} key={category.id}>
+                <div className={classNames({
+                    [styles.item__tipo]:true,
+                    [styles[`item__tipo__${category.label.toLowerCase()}`]]:true,
+                })} key={category.id}>
                     {category.label}
                 </div>
                 <div className={styles.item__porcao}>
