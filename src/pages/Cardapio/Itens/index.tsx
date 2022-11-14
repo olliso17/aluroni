@@ -6,11 +6,19 @@ export default function Itens() {
     return (
         <div className={styles.itens}>{
             cardapio.map(item=>(
-                <Item key={item.id}/>
-                // <div >
-
-                //     <h3>{item.title}</h3>
-                // </div>
+                //duas formas de passar dependendo do sistema
+                
+                // <Item key={item.id}
+                //     title={item.title}
+                //     description={item.description}
+                //     size={item.size}
+                //     id={item.id}
+                //     serving={item.serving}
+                //     price={item.price}
+                //     category={item.category}
+                //     photo = {item.photo}
+                // />
+                <Item key={item.id} {...item}/>
             ))
         }</div>
     )
